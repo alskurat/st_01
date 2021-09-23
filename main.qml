@@ -7,4 +7,10 @@ Window {
     visible: true
     title: qsTr("Hello World")
 
+    Text {
+        id: name
+        text: qsTr("Hello World")
+        anchors.centerIn: parent
+    }
+
 }
