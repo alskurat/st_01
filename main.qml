@@ -17,23 +17,12 @@ Window {
         value: 0
         enabled: true
         onValueChanged: {
-            recCenter.rotation = slide.value
-            recTopLeft.rotation = slide.value
+            pad.rotation = slide.value
         }
-
     }
 
-    //    MouseArea{
-    //        anchors.fill:recCenter
-    //        onClicked: {
-    //            /*Qt.quit()*/
-    //            recCenter.width = parent.width /4
-    //            recCenter.height = parent.height /4
-    //        }
-    //    }
-
     Rectangle{
-        id: recCenter
+        id: pad
         width: parent.width/2
         height: parent.height/2
         color: "green"
@@ -43,12 +32,21 @@ Window {
 
         Greenbox {
             id: box
+            width: pad.width
+            height: pad.height/5
             color: "red"
-            text: ""
-            anchors.right: recCenter.left
-            anchors.bottom: recCenter.top
-//            onMySignal: text = "lala";
+            anchors.right: pad.right
+            anchors.bottom: pad.top
+            TextArea{
+                id: output
+                width: parent.width * 0.5
+                height: parent.height * 0.5
+                anchors.centerIn: parent
+
+            }
         }
+        
+
 
         NumPad{
         }
@@ -59,36 +57,36 @@ Window {
 
 
 
-//        Rectangle {
-//            width: 300
-//            height: 50
+    //        Rectangle {
+    //            width: 300
+    //            height: 50
 
-//            color: "red"
-//            border.color: "darkred"
-//            border.width: 5
-//            radius: height / 3
-//        }
+    //            color: "red"
+    //            border.color: "darkred"
+    //            border.width: 5
+    //            radius: height / 3
+    //        }
 
-//        Rectangle {
-//            width: 200
-//            height: 200
-//            anchors.centerIn: parent
-//            color: "red"
-//            border.color: "black"
-//            border.width: 5
-//            radius: 10
+    //        Rectangle {
+    //            width: 200
+    //            height: 200
+    //            anchors.centerIn: parent
+    //            color: "red"
+    //            border.color: "black"
+    //            border.width: 5
+    //            radius: 10
 
 
-//            Rectangle {
-//                width: 50
-//                height: 50
-//    //            anchors.centerIn: parent
-//                anchors.left: parent.left
-//                anchors.bottom: parent.bottom
-//                color: "green"
-//                border.color: "darkgreen"
-//                border.width: 5
-//                radius: 10
-//            }
-//        }
+    //            Rectangle {
+    //                width: 50
+    //                height: 50
+    //    //            anchors.centerIn: parent
+    //                anchors.left: parent.left
+    //                anchors.bottom: parent.bottom
+    //                color: "green"
+    //                border.color: "darkgreen"
+    //                border.width: 5
+    //                radius: 10
+    //            }
+    //        }
 }

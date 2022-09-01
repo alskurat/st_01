@@ -21,7 +21,7 @@ Rectangle
         anchors.fill: parent
         onClicked:{
             console.log("clicked " + name.text)
-            box.text = value;
+            output.text += value;
         }
     }
 }
