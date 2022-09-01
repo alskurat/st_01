@@ -1,8 +1,8 @@
 import QtQuick 2.0
 
 Column{
-    anchors.top: parent.top
-    anchors.centerIn: parent.right
+//    anchors.top: parent.top
+//    anchors.centerIn: parent.right
     Row{
         MyButton {
             id: button1
