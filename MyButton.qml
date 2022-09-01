@@ -3,13 +3,14 @@ import QtQuick.Controls 2.0
 
 Rectangle
 {
-    width: 50
-    height: 50
+    width: size
+    height: size
     color: "lightgray"
     border.width: 1
     border.color: "gray"
-    radius: 0.3 * width
+    radius: 0.3 * size
     property string value
+    property int size: 50
     Text {
         id: name
         color: "black"

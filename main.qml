@@ -39,15 +39,11 @@ Window {
             anchors.bottom: pad.top
             TextArea{
                 id: output
-                width: parent.width * 0.5
-                height: parent.height * 0.5
                 anchors.margins: 5
                 anchors.fill: parent
-
             }
         }
         
-
         Row{
             anchors.centerIn: parent
             NumPad{
