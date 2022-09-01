@@ -1,5 +1,9 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
+        <file>Greenbox.qml</file>
+        <file>MyButton.qml</file>
+        <file>NumPad.qml</file>
     </qresource>
+    <qresource prefix="/files"/>
 </RCC>
