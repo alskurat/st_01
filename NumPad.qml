@@ -3,6 +3,14 @@ import QtQuick 2.0
 Column{
 //    anchors.top: parent.top
 //    anchors.centerIn: parent.right
+    signal reseted()
+    onReseted: {
+        for(var i = 0; i < this.children.length; i++) {
+            for(var j = 0; j < this.children[i].children.length; j++) {
+                this.children[i].children[j].rotation = 0;
+            }
+        }
+    }
     Row{
         MyButton {
             id: button1

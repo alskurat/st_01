@@ -54,6 +54,7 @@ Window {
                 height: 20
             }
             Controls{
+                id: controls
             }
         }
     }

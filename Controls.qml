@@ -1,6 +1,14 @@
 import QtQuick 2.0
 
 Row{
+    signal reseted()
+    onReseted: {
+        for(var i = 0; i < this.children.length; i++) {
+            for(var j = 0; j < this.children[i].children.length; j++) {
+                this.children[i].children[j].rotation = 0;
+            }
+        }
+    }
     Column {
         MyButton {
             id: plus
@@ -45,16 +53,8 @@ Row{
                 onClicked:{
                     console.log("clear")
                     output.text = ""
-
-                    console.log(numPad.children.length)
-                    for(var i = 0; i < numPad.children.length; i++)
-                    {
-                        console.log(numPad.children[i].children.length)
-                        for(var j = 0; j < numPad.children[i].children.length; j++)
-                        {
-                            numPad.children[i].children[j].rotation = 0;
-                        }
-                    }
+                    numPad.reseted()
+                    controls.reseted()
                 }
             }
         }
