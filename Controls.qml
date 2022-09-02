@@ -45,8 +45,16 @@ Row{
                 onClicked:{
                     console.log("clear")
                     output.text = ""
-                    pad.children.color = "red";
-                    enter.color = "yellow";
+
+                    console.log(numPad.children.length)
+                    for(var i = 0; i < numPad.children.length; i++)
+                    {
+                        console.log(numPad.children[i].children.length)
+                        for(var j = 0; j < numPad.children[i].children.length; j++)
+                        {
+                            numPad.children[i].children[j].rotation = 0;
+                        }
+                    }
                 }
             }
         }

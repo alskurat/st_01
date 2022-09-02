@@ -47,6 +47,7 @@ Window {
         Row{
             anchors.centerIn: parent
             NumPad{
+                id: numPad
             }
             Item{   // spacer item
                 width: 20
