@@ -1,6 +1,7 @@
 import QtQuick 2.12
 import QtQuick.Window 2.12
 import QtQuick.Controls 2.0
+import MyCalculate 1.0
 
 Window {
     visible: true
@@ -8,6 +9,10 @@ Window {
     height: 600
     color: "white"
     title: qsTr("Hello World")
+
+    Calculate{
+        id: calc
+    }
 
     Slider{
         id: slide

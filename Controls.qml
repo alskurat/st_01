@@ -33,6 +33,14 @@ Row{
             id: enter
             height: plus.height * 2
             value: "="
+            MouseArea{
+                id: enterMouse
+                anchors.fill: parent
+                onClicked:{
+                    console.log(calc.calculate(output.text))
+                    output.clear()
+                }
+            }
         }
 
         MyButton {
