@@ -31,11 +31,22 @@ Row{
             id: clear
             height: plus.height *2
             value: "C"
+            PropertyAnimation on height {
+                id: anim2
+                from: 0
+                to:  plus.height *2
+                duration: 500
+                alwaysRunToEnd: true
+                running: clearMouse.pressed;
+            }
             MouseArea{
+                id: clearMouse
                 anchors.fill: parent
                 onClicked:{
                     console.log("clear")
-                    output.text = "";
+                    output.text = ""
+                    pad.children.color = "red";
+                    enter.color = "yellow";
                 }
             }
         }

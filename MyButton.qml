@@ -3,6 +3,7 @@ import QtQuick.Controls 2.0
 
 Rectangle
 {
+    id: anyButton
     width: size
     height: size
     color: "lightgray"
@@ -18,7 +19,17 @@ Rectangle
             /*qsTr("Hello World")*/
         anchors.centerIn: parent
     }
+    RotationAnimation on rotation {
+        id: anim
+        from: parent.rotation
+        to: 480
+        duration: 500
+        direction: RotationAnimation.Clockwise
+//        alwaysRunToEnd : true
+        running: myMouse.pressed;
+    }
     MouseArea{
+        id: myMouse
         anchors.fill: parent
         onClicked:{
             console.log("clicked " + name.text)

@@ -43,7 +43,7 @@ Window {
                 anchors.fill: parent
             }
         }
-        
+
         Row{
             anchors.centerIn: parent
             NumPad{
@@ -58,41 +58,4 @@ Window {
     }
 }
 
-
-
-
-
-
-//        Rectangle {
-//            width: 300
-//            height: 50
-
-//            color: "red"
-//            border.color: "darkred"
-//            border.width: 5
-//            radius: height / 3
-//        }
-
-//        Rectangle {
-//            width: 200
-//            height: 200
-//            anchors.centerIn: parent
-//            color: "red"
-//            border.color: "black"
-//            border.width: 5
-//            radius: 10
-
-
-//            Rectangle {
-//                width: 50
-//                height: 50
-//    //            anchors.centerIn: parent
-//                anchors.left: parent.left
-//                anchors.bottom: parent.bottom
-//                color: "green"
-//                border.color: "darkgreen"
-//                border.width: 5
-//                radius: 10
-//            }
-//        }
 
