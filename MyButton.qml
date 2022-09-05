@@ -13,27 +13,16 @@ Rectangle
     property string value
     property int size: 50
     Text {
-        id: name
         color: "black"
         text: value
-            /*qsTr("Hello World")*/
         anchors.centerIn: parent
     }
-    RotationAnimation on rotation {
-        id: anim
-        from: parent.rotation
-        to: 480
-        duration: 500
-        direction: RotationAnimation.Clockwise
-//        alwaysRunToEnd : true
-        running: myMouse.pressed;
-    }
-    MouseArea{
-        id: myMouse
-        anchors.fill: parent
-        onClicked:{
-            console.log("clicked " + name.text)
-            output.text += value;
-        }
-    }
+//    MouseArea{
+//        id: anyMouse
+//        anchors.fill: parent
+//        onClicked:{
+//            console.log("clicked " + value)
+//            output.text += value;
+//        }
+//    }
 }

@@ -1,8 +1,8 @@
 import QtQuick 2.0
 
 Row{
-    signal reseted()
-    onReseted: {
+    signal reset()
+    onReset: {
         for(var i = 0; i < this.children.length; i++) {
             for(var j = 0; j < this.children[i].children.length; j++) {
                 this.children[i].children[j].rotation = 0;
@@ -37,8 +37,7 @@ Row{
                 id: enterMouse
                 anchors.fill: parent
                 onClicked:{
-                    console.log(calc.calculate(output.text))
-                    output.clear()
+                    output.text = calc.calculate(output.text)
                 }
             }
         }
@@ -61,8 +60,9 @@ Row{
                 onClicked:{
                     console.log("clear")
                     output.text = ""
-                    numPad.reseted()
-                    controls.reseted()
+                    numPad.reset()
+                    numPad.rotation = 0
+                    controls.reset()
                 }
             }
         }

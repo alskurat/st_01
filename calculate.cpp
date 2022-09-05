@@ -3,5 +3,5 @@
 
 QString Calculate::calculate(QString str) {
   qDebug() << str;
-  return "Nan";
+  return "я так не считаю";
 }
