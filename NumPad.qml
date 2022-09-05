@@ -39,6 +39,15 @@ Column{
             value: "2"
             signal reset()
             onReset:{}
+            MouseArea{
+                id: but2Mouse
+                anchors.fill: parent
+                onClicked:{
+                    console.log("clicked " + button2.value)
+                    output.text += button2.value;
+                    box.state = "reanchored"
+                }
+            }
         }
         MyButton {
             id: button3
@@ -69,10 +78,10 @@ Column{
                 id: but5Mouse
                 anchors.fill: parent
                 onClicked:{
-                        var string = but5Mouse.enabled ? button5.value : ""
-                        console.log("clicked " + string + button5.flag)
-                        output.text += string
-                        but5Mouse.enabled = false
+                    var string = but5Mouse.enabled ? button5.value : ""
+                    console.log("clicked " + string)
+                    output.text += string
+                    but5Mouse.enabled = false
                 }
             }
             RotationAnimation on opacity {
@@ -115,7 +124,20 @@ Column{
             id: button9
             value: "9"
             signal reset()
-            onReset:{}
+            onReset:{
+                box.color = "green"
+                pad.color = "red"
+            }
+            MouseArea{
+                id: but9Mouse
+                anchors.fill: parent
+                onClicked:{
+                    console.log("clicked " + button9.value)
+                    output.text += button9.value
+                    box.color = "blue"
+                    pad.color = "blue"  //TODO: ColorAnimation
+                }
+            }
         }
     }
     Row{

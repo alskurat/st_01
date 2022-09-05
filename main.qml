@@ -1,4 +1,4 @@
-import QtQuick 2.12
+import QtQuick 2.2
 import QtQuick.Window 2.12
 import QtQuick.Controls 2.0
 import MyCalculate 1.0
@@ -30,24 +30,37 @@ Window {
         id: pad
         width: parent.width/2
         height: parent.height/2
-        color: "green"
-        border.color: "dark green"
+        color: "red"
+        border.color: "dark red"
         border.width: 4
         anchors.centerIn: parent
 
         Greenbox {
             id: box
             width: pad.width
-            height: pad.height/5
-            color: "red"
+            height: pad.height/8
+            color: "green"
             anchors.right: pad.right
-            anchors.bottom: pad.top
+            anchors.top: pad.top
             TextArea{
                 id: output
                 anchors.margins: 5
                 anchors.fill: parent
             }
         }
+        states:  State {
+            name: "reanchored"
+            AnchorChanges:{
+                target: box;
+                anchors.bottom = pad.bottom
+            }
+        }
+            //animate our anchor changes
+            Transition {
+                AnchorAnimation { duration: 1000}
+            }
+
+
 
         Row{
             anchors.centerIn: parent
