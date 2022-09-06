@@ -200,8 +200,10 @@ Column{
             value: "9"
             signal reset()
             onReset:{
-                box.color = "green"
-                pad.color = "red"
+                box.color = box.boxColor
+                box.border.color = "dark " + box.boxColor
+                pad.color = pad.padColor
+                pad.border.color = "dark " + pad.padColor
             }
             MouseArea{
                 id: but9Mouse
@@ -209,8 +211,22 @@ Column{
                 onClicked:{
                     console.log("clicked " + button9.value)
                     output.text += button9.value
-                    box.color = "blue"
-                    pad.color = "blue"  //TODO: ColorAnimation
+                    colorAnim.running = true
+                }
+            }
+            SequentialAnimation{
+                id: colorAnim
+                ColorAnimation{
+                    targets: [box, pad]
+                    properties:  "color, border.color"
+                    to: "yellow"
+                    duration: 1000
+                }
+                ColorAnimation{
+                    targets: [box, pad]
+                    properties:  "color, border.color"
+                    to: "blue"
+                    duration: 1000
                 }
             }
         }

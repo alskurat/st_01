@@ -30,21 +30,26 @@ Window {
         id: pad
         width: parent.width/2
         height: parent.height/2
-        color: "red"
-        border.color: "dark red"
+
+        property var padColor: "red"
+        color: padColor
+        border.color: "dark " + padColor
         border.width: 4
         anchors.centerIn: parent
 
         Greenbox {
             id: box
             width: pad.width
-            height: pad.height/8
-            color: "green"
+            height: pad.height/6
+            property var boxColor: "green"
+            color: boxColor
+            border.color: "dark " + boxColor
+            border.width: 4
             anchors.right: pad.right
-            anchors.top: pad.top
+            anchors.bottom: pad.top
             TextArea{
                 id: output
-                anchors.margins: 5
+                anchors.margins: 10
                 anchors.fill: parent
             }
         }
