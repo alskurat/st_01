@@ -53,7 +53,67 @@ Column{
             id: button3
             value: "3"
             signal reset()
-            onReset:{}
+            onReset:{
+                console.log("button3 reset ")
+                button3.x = button3.lastX
+                button3.y = button3.lastY
+            }
+            property double lastX
+            property double lastY
+            MouseArea{
+                id: but3Mouse
+                anchors.fill: parent
+                onClicked:{
+                    console.log("clicked " + button3.value)
+                    output.text += button3.value;
+                    button3.lastX = button3.x
+                    button3.lastY = button3.y
+                    paraAnim.running = true
+                }
+            }
+            ParallelAnimation {
+                running: false
+                id: paraAnim
+                SequentialAnimation{
+                    NumberAnimation {
+                        target: button3
+                        properties: "y"
+                        to: button3.y - 2* button3.height
+                        duration: 500
+                        easing.type: Easing.OutCirc
+                        easing.amplitude: 2.0
+                        easing.period: 2.0
+                    }
+                    NumberAnimation {
+                        target: button3
+                        properties: "y"
+                        to: button1.y
+                        duration: 500
+                        easing.type: Easing.OutBounce
+                        easing.amplitude: 2.0
+                        easing.period: 2.0
+                    }
+                }
+                NumberAnimation {
+                    target: button3
+                    properties: "x"
+                    to: button1.x
+                    duration: 1000
+                }
+                NumberAnimation {
+                    target: button1
+                    properties: "y"
+                    to: button3.lastY
+                    duration: 1000
+                    easing.type: Easing.OutCirc
+                }
+                NumberAnimation {
+                    target: button1
+                    properties: "x"
+                    to: button3.x
+                    duration: 1000
+                }
+            }
         }
     }
     Row{

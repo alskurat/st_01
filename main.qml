@@ -48,17 +48,17 @@ Window {
                 anchors.fill: parent
             }
         }
-        states:  State {
-            name: "reanchored"
-            AnchorChanges:{
-                target: box;
-                anchors.bottom = pad.bottom
-            }
-        }
-            //animate our anchor changes
-            Transition {
-                AnchorAnimation { duration: 1000}
-            }
+//        states:  State {
+//            name: "reanchored"
+//            AnchorChanges:{
+//                target: box;
+//                anchors.bottom = pad.bottom
+//            }
+//        }
+//            //animate our anchor changes
+//            Transition {
+//                AnchorAnimation { duration: 1000}
+//            }
 
 
 
