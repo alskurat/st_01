@@ -14,7 +14,14 @@ Column{
     Row{
         MyButton {
             signal reset()
-            onReset:{ rotation = 0 }
+            onReset:{
+                console.log("button1 reset ")
+                rotation = 0
+                button1.x = button1.lastX
+                button1.y = button1.lastY
+            }
+            property double lastX
+            property double lastY
             id: button1
             value: "1"
             MouseArea{
@@ -69,49 +76,57 @@ Column{
                     button3.lastX = button3.x
                     button3.lastY = button3.y
                     paraAnim.running = true
+                    button1.lastX = button1.x
+                    button1.lastY = button1.y
                 }
             }
             ParallelAnimation {
                 running: false
+                property int duration: 1000
                 id: paraAnim
                 SequentialAnimation{
                     NumberAnimation {
                         target: button3
                         properties: "y"
-                        to: button3.y - 2* button3.height
-                        duration: 500
+                        to: button3.y - 2 * button3.height
+                        duration: paraAnim.duration / 2
                         easing.type: Easing.OutCirc
-                        easing.amplitude: 2.0
-                        easing.period: 2.0
                     }
                     NumberAnimation {
                         target: button3
                         properties: "y"
                         to: button1.y
-                        duration: 500
+                        duration: paraAnim.duration / 2
                         easing.type: Easing.OutBounce
-                        easing.amplitude: 2.0
-                        easing.period: 2.0
                     }
                 }
                 NumberAnimation {
                     target: button3
                     properties: "x"
                     to: button1.x
-                    duration: 1000
+                    duration: paraAnim.duration
                 }
-                NumberAnimation {
-                    target: button1
-                    properties: "y"
-                    to: button3.lastY
-                    duration: 1000
-                    easing.type: Easing.OutCirc
+                SequentialAnimation{
+                    NumberAnimation {
+                        target: button1
+                        properties: "y"
+                        to: button3.lastY - 4 * button3.height
+                        duration: paraAnim.duration / 2
+                        easing.type: Easing.OutCirc
+                    }
+                    NumberAnimation {
+                        target: button1
+                        properties: "y"
+                        to: button3.lastY
+                        duration: paraAnim.duration / 2
+                        easing.type: Easing.OutBounce
+                    }
                 }
                 NumberAnimation {
                     target: button1
                     properties: "x"
                     to: button3.x
-                    duration: 1000
+                    duration: paraAnim.duration
                 }
             }
         }
